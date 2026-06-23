@@ -37,6 +37,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Install ImageMagick
         run: sudo apt-get update && sudo apt-get install -y libmagickwand-dev libmagickcore-dev pkg-config
 
@@ -50,8 +54,9 @@ jobs:
         env:
           JEKYLL_ENV: production
           PAGES_REPO_NWO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          bundle exec jekyll build
+          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
           touch _site/.nojekyll
 
       - name: Upload artifact
