@@ -31,9 +31,11 @@ deployment stays online, so drshubhamgupta.com keeps working unchanged until ste
 
 1. Cloudflare → **Add a domain** → `drshubhamgupta.com` → **Free** plan.
 2. Cloudflare scans the current DNS records. Before continuing:
-   - **Delete** the four `A` records for `drshubhamgupta.com` pointing at GitHub (`185.199.108.153`,
-     `185.199.109.153`, `185.199.110.153`, `185.199.111.153`) and any `www` record (usually a `CNAME` to
-     `shubhamguptaiitd.github.io`). Step 5 adds the new ones.
+   - The four `A` records for `drshubhamgupta.com` (`185.199.108.153` to `185.199.111.153`) and the `www`
+     `CNAME` (to `shubhamguptaiitd.github.io`) point at GitHub Pages. **Keep them for now, but click each one's
+     orange cloud so it turns grey (DNS only).** The old site then keeps working exactly as today while the
+     nameservers switch. Step 5 deletes them.
+   - The `_domainconnect` `CNAME` is Squarespace's setup helper and isn't needed with Cloudflare; delete it.
    - **Keep** any `MX` and `TXT` records (email, Google verification). If you don't use email on this domain,
      there may be none.
 3. Cloudflare shows **two nameservers**, like `xxx.ns.cloudflare.com`. Keep that page open.
@@ -51,12 +53,14 @@ Keep **auto-renew** on at Squarespace; the registration itself stays there.
 
 ## 5. Connect the domain to the Workers project (you)
 
-1. Workers project → **Settings** → **Domains & Routes** → **Add** → **Custom domain** → `drshubhamgupta.com`.
+1. Cloudflare → `drshubhamgupta.com` → **DNS** → delete the four GitHub `A` records and the `www` `CNAME` kept
+   in step 3. Do step 2 right after, so the site is only off for a minute or two.
+2. Workers project → **Settings** → **Domains & Routes** → **Add** → **Custom domain** → `drshubhamgupta.com`.
    Repeat for `www.drshubhamgupta.com`. Cloudflare adds the DNS records and the HTTPS certificate itself.
-2. **www → main domain:** **Rules** → **Redirect Rules** → **Create rule** → template **Redirect from WWW to root**
+3. **www → main domain:** **Rules** → **Redirect Rules** → **Create rule** → template **Redirect from WWW to root**
    → deploy.
-3. **HTTPS everywhere:** **SSL/TLS** → **Edge Certificates** → turn on **Always Use HTTPS**.
-4. **Visitor stats (optional):** **Analytics & Logs** → **Web Analytics** → **Add a site** → `drshubhamgupta.com`.
+4. **HTTPS everywhere:** **SSL/TLS** → **Edge Certificates** → turn on **Always Use HTTPS**.
+5. **Visitor stats (optional):** **Analytics & Logs** → **Web Analytics** → **Add a site** → `drshubhamgupta.com`.
    Free, no cookies, no consent banner, no code changes.
 
 Check it worked:
