@@ -1,0 +1,33 @@
+<div class="pub" id="{{ paper.key }}">
+  <div class="pub-badges">
+    {%- if paper.abbr %}
+    {%- if paper.abbrUrl %}<a class="badge" href="{{ paper.abbrUrl }}">{{ paper.abbr }}</a>{% else %}<span class="badge">{{ paper.abbr }}</span>{% endif %}
+    {%- endif %}
+    {%- if paper.award %}<span class="badge award">{{ paper.award }}</span>{% endif %}
+  </div>
+  <div class="pub-body">
+    <div class="title">{{ paper.title }}</div>
+    <div class="author">
+      {%- for a in paper.authors -%}
+      {%- if not loop.first %}{% if loop.last %}{% if loop.length > 2 %},{% endif %} and {% else %}, {% endif %}{% endif -%}
+      {%- if a.isSelf %}<em>{{ a.name }}</em>
+      {%- elif a.url %}<a href="{{ a.url }}">{{ a.name }}</a>
+      {%- else %}{{ a.name }}{% endif -%}
+      {%- endfor -%}
+    </div>
+    <div class="periodical"><em>{{ paper.venue }}</em> {{ paper.year }}</div>
+    {%- if paper.links.length or paper.abstract %}
+    <div class="links">
+      {%- for link in paper.links %}
+      <a class="btn" href="{{ link.url }}">{{ link.label }}</a>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+    {%- if paper.abstract %}
+    <details class="abstract">
+      <summary class="btn">Abs</summary>
+      <p>{{ paper.abstract }}</p>
+    </details>
+    {%- endif %}
+  </div>
+</div>

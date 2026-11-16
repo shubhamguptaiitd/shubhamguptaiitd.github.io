@@ -1,0 +1,8 @@
+<table>
+  {%- for item in collections.news %}
+  <tr>
+    <th scope="row"><time datetime="{{ item.date | isoDate }}">{{ item.date | displayDate }}</time></th>
+    <td>{{ item.content | safe }}</td>
+  </tr>
+  {%- endfor %}
+</table>

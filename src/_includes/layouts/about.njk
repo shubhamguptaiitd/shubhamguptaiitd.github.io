@@ -1,0 +1,50 @@
+---
+layout: layouts/base.njk
+---
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ site.title }}</h1>
+    <p class="desc">{{ description | safe }}</p>
+  </header>
+
+  <div class="profile">
+    <a href="{{ site.linkedinUrl }}" title="{{ site.title }} on LinkedIn">
+      <img src="/assets/img/prof_pic.jpg" alt="Photo of {{ site.title }}" width="388" height="360">
+    </a>
+    <p class="profile-link"><a href="{{ site.linkedinUrl }}">{% icon "linkedin", "LinkedIn" %} LinkedIn</a></p>
+  </div>
+
+  <div class="clearfix">
+    {{ content | safe }}
+  </div>
+
+  {% if latestWriting %}
+  <section class="writing">
+    <h2>Latest writing <a href="/writing/">[all]</a></h2>
+    {% set essays = writing.essays.slice(0, latestWriting) %}
+    {% include "partials/writing-list.njk" %}
+  </section>
+  {% endif %}
+
+  {% if collections.news.length %}
+  <section class="news">
+    <h2>News</h2>
+    {% include "partials/news.njk" %}
+  </section>
+  {% endif %}
+
+  {% if publications.selected.length %}
+  <section class="publications">
+    <h2>Selected Publications <a href="/publications/">[full list]</a></h2>
+    <ol class="bibliography">
+      {% for paper in publications.selected %}
+      <li>{% include "partials/publication.njk" %}</li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+
+  <div class="social">
+    {% include "partials/social.njk" %}
+  </div>
+</article>

@@ -1,0 +1,27 @@
+<header class="navbar">
+  <nav class="container navbar-inner" aria-label="Main">
+    {%- if page.url != "/" %}
+    <a class="navbar-brand" href="/">{{ site.title }}</a>
+    {%- endif %}
+    <button class="navbar-toggler" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/"{% if page.url == "/" %} class="active" aria-current="page"{% endif %}>About</a></li>
+      {%- for item in site.nav %}
+      <li><a href="{{ item.url }}"{% if page.url == item.url %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+  <script>
+    (function () {
+      var button = document.currentScript.parentNode.querySelector(".navbar-toggler");
+      var links = document.getElementById("nav-links");
+      button.addEventListener("click", function () {
+        var open = button.getAttribute("aria-expanded") !== "true";
+        button.setAttribute("aria-expanded", String(open));
+        links.classList.toggle("open", open);
+      });
+    })();
+  </script>
+</header>

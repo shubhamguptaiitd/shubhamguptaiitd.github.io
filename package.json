@@ -1,0 +1,20 @@
+{
+  "name": "drshubhamgupta.com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal site of Shubham Gupta: research, industry work and writing.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "npm run clean && eleventy",
+    "clean": "node -e \"require('node:fs').rmSync('_site',{recursive:true,force:true})\""
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.7",
+    "@fontsource/roboto": "5.3.0",
+    "@retorquere/bibtex-parser": "12.1.13"
+  }
+}

@@ -1,0 +1,13 @@
+<div class="contact-icons">
+  {#- Without JavaScript the link keeps the address spelled out in words. -#}
+  <a href="mailto:{{ (site.email.user + ' AT ' + site.email.domain | replace('.', ' dot ')) | urlencode }}" data-email-user="{{ site.email.user }}" data-email-domain="{{ site.email.domain }}" title="Email">{% icon "envelope", "Email" %}</a>
+  <a href="{{ site.scholarUrl }}" title="Google Scholar">{% icon "google-scholar", "Google Scholar" %}</a>
+  <a href="{{ site.githubUrl }}" title="GitHub">{% icon "github", "GitHub" %}</a>
+  <a href="{{ site.linkedinUrl }}" title="LinkedIn">{% icon "linkedin", "LinkedIn" %}</a>
+  <a href="{{ site.xUrl }}" title="X (Twitter)">{% icon "x-twitter", "X (Twitter)" %}</a>
+</div>
+<script>
+  document.querySelectorAll("a[data-email-user]").forEach(function (a) {
+    a.href = "mailto:" + a.dataset.emailUser + "@" + a.dataset.emailDomain;
+  });
+</script>

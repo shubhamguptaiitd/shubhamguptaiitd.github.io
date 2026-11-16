@@ -1,0 +1,627 @@
+/* The look of the earlier al-folio theme (Bootstrap 4 + MDB), rebuilt as plain CSS.
+   Sizes and colors were measured from the old site so the pages read the same. */
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --text-color-light: #828282;
+  --theme-color: #1a4480; /* navy accent */
+  --divider-color: rgba(0, 0, 0, 0.1);
+  --footer-bg-color: #1c1c1d;
+  --footer-text-color: #e8e8e8;
+  --nav-height: 57px;
+  --max-width: 800px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding-top: calc(var(--nav-height) - 1px);
+  padding-bottom: 70px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.content {
+  margin-top: 3rem;
+}
+
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  scroll-margin-top: 66px;
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p, ul, ol, table {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+strong, b {
+  font-weight: 700;
+}
+
+a {
+  color: var(--theme-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--divider-color);
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Navbar: fixed to the top, links on the right */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  min-height: var(--nav-height);
+  padding: 8px 0;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--divider-color);
+  opacity: 0.95;
+}
+
+.navbar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 40px;
+}
+
+.navbar-brand {
+  margin-right: 1rem;
+  padding: 5px 0;
+  font-size: 1.25rem;
+  font-weight: 100;
+  line-height: 30px;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+.navbar-brand:hover {
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  margin: 0 0 0 auto;
+  padding: 0;
+  list-style: none;
+}
+.nav-links a {
+  display: block;
+  padding: 8px 6px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+.nav-links a:hover {
+  color: var(--theme-color);
+  text-decoration: none;
+}
+.nav-links a.active {
+  color: var(--theme-color);
+}
+
+.navbar-toggler {
+  display: none;
+  margin-left: auto;
+  padding: 4px 12px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.navbar-toggler .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 4px 0;
+  background-color: var(--text-color);
+  border-radius: 1px;
+  transition: all 0.2s;
+}
+.navbar-toggler[aria-expanded="true"] .icon-bar:nth-child(1) {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+.navbar-toggler[aria-expanded="true"] .icon-bar:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggler[aria-expanded="true"] .icon-bar:nth-child(3) {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+
+/* Phones: the links fold behind the menu button. Without JavaScript they stay visible. */
+@media (max-width: 575.98px) {
+  .js .navbar-toggler {
+    display: block;
+  }
+  .js .nav-links {
+    display: none;
+  }
+  .nav-links {
+    flex-basis: 100%;
+    flex-direction: column;
+    text-align: right;
+  }
+  .js .nav-links.open {
+    display: flex;
+  }
+  /* The open menu is solid so page text doesn't show through behind the links. */
+  .navbar:has(.nav-links.open) {
+    opacity: 1;
+  }
+}
+
+/* Footer: fixed to the bottom */
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+  padding: 9px 0 8px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--footer-text-color);
+  background-color: var(--footer-bg-color);
+}
+.footer a {
+  color: #ffffff;
+}
+
+/* Page header */
+
+.post-title {
+  font-size: 2.5rem;
+}
+
+.desc {
+  margin-bottom: 1rem;
+}
+
+.post-description {
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+}
+.post-description a {
+  color: inherit;
+}
+.post-description a:hover {
+  color: var(--theme-color);
+  text-decoration: none;
+}
+
+/* Profile photo, floated right of the bio */
+
+.profile {
+  float: right;
+  width: 100%;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+.profile img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+@media (min-width: 576px) {
+  .profile {
+    width: 30%;
+  }
+}
+
+/* Latest writing */
+
+.writing-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+.writing-list li {
+  margin-bottom: 1.25rem;
+}
+.writing-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.writing-meta {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-color-light);
+}
+.writing-desc {
+  margin: 0.25rem 0 0;
+}
+
+/* News */
+
+.news table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.news th,
+.news td {
+  padding: 0.3rem;
+  vertical-align: top;
+  text-align: left;
+}
+.news th {
+  padding-left: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.news td > :last-child {
+  margin-bottom: 0;
+}
+
+/* Publications */
+
+.publications {
+  margin-top: 2rem;
+}
+.publications h2.year {
+  margin-top: 2rem;
+  margin-bottom: -2rem;
+  padding-top: 1rem;
+  color: var(--divider-color);
+  border-top: 1px solid var(--divider-color);
+  text-align: right;
+}
+.bibliography {
+  margin-top: 0;
+  padding: 0;
+  list-style: none;
+}
+.bibliography > li {
+  margin-bottom: 1rem;
+}
+
+.pub {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+.pub-badges,
+.pub-body {
+  width: 100%;
+  padding: 0 15px;
+}
+.pub-badges {
+  min-height: 2rem;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 576px) {
+  .pub-badges {
+    flex: 0 0 16.6667%;
+    max-width: 16.6667%;
+  }
+  .pub-body {
+    flex: 0 0 66.6667%;
+    max-width: 66.6667%;
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  color: #ffffff;
+  background-color: var(--theme-color);
+  border-radius: 2px;
+}
+a.badge:hover {
+  text-decoration: none;
+}
+.badge.award {
+  color: var(--theme-color);
+  background-color: transparent;
+  border: 1px solid var(--theme-color);
+}
+
+.pub .title {
+  font-weight: 400;
+}
+.pub .author a {
+  border-bottom: 1px dashed var(--theme-color);
+}
+.pub .author a:hover {
+  border-bottom-style: solid;
+  text-decoration: none;
+}
+.pub .author em {
+  font-style: normal;
+  border-bottom: 1px solid;
+}
+
+.pub .btn {
+  display: inline-block;
+  margin: 6px;
+  padding: 4px 1rem;
+  font-size: 0.64rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.pub .btn:hover {
+  color: var(--theme-color);
+  border-color: var(--theme-color);
+  text-decoration: none;
+}
+.pub .abstract summary {
+  list-style: none;
+}
+.pub .abstract summary::-webkit-details-marker {
+  display: none;
+}
+.pub .abstract p {
+  margin: 10px;
+  font-size: 0.875rem;
+  line-height: 1.4em;
+  text-align: justify;
+}
+
+/* Social icons under the home page */
+
+.social {
+  text-align: center;
+}
+.contact-icons {
+  font-size: 4rem;
+}
+.contact-icons a {
+  color: var(--text-color);
+}
+.contact-icons a:hover {
+  color: var(--theme-color);
+  text-decoration: none;
+}
+.icon {
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+/* Roboto, self-hosted from @fontsource/roboto (SIL OFL 1.1). Only the weights the site uses. */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("/assets/fonts/roboto-latin-ext-100-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("/assets/fonts/roboto-latin-100-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/roboto-latin-ext-300-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/roboto-latin-300-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/roboto-latin-ext-400-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/roboto-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/roboto-latin-ext-700-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/roboto-latin-700-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* LinkedIn link under the profile photo on the home page */
+
+.profile-link {
+  margin: 0.5rem 0 0;
+  text-align: center;
+}
+.profile-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.profile-link svg {
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
+}
+
+/* Photos inside a news item. They load only when scrolled near. */
+
+.news-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+.news-photo-small {
+  max-width: 240px;
+}
+
+/* A small photo on the right with the text wrapping around it; on phones it sits on its own line. */
+.news-wrap {
+  display: flow-root;
+  margin-bottom: 1rem;
+}
+.news-wrap p:last-child {
+  margin-bottom: 0;
+}
+/* Phones: the sentence first, then the photo, then the celebration line. */
+@media (max-width: 575.98px) {
+  .news-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .news-wrap p:first-of-type {
+    order: -1;
+  }
+}
+@media (min-width: 576px) {
+  .news-photo-float {
+    float: right;
+    width: 40%;
+    margin: 0.25rem 0 0.5rem 1rem;
+  }
+}
+
+/* Clickable faces on a photo: each person's face is a link that shows their name on hover. */
+
+.heart-red {
+  color: #dd2e44;
+  font-weight: 400;
+}
+.photo-tags {
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+.photo-tags .news-photo {
+  margin-bottom: 0;
+}
+.face {
+  position: absolute;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: border-color 0.15s;
+}
+.face:hover,
+.face:focus-visible {
+  border-color: rgba(255, 255, 255, 0.9);
+  outline: none;
+}
+.face-name {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+.face-name.heart-red {
+  color: #ff6b7d;
+}
+.face:hover .face-name,
+.face:focus-visible .face-name {
+  opacity: 1;
+}
+.photo-hint {
+  font-size: 0.8rem;
+  color: var(--text-color-light);
+}
+/* Phones have no hover, so they get the "tap" wording instead. */
+.hint-touch {
+  display: none;
+}
+@media (hover: none) {
+  .hint-mouse {
+    display: none;
+  }
+  .hint-touch {
+    display: inline;
+  }
+}

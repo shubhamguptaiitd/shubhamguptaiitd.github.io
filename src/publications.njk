@@ -1,0 +1,16 @@
+---
+layout: layouts/page.njk
+permalink: /publications/
+title: Publications
+description: publications in reversed chronological order. An up-to-date list is also on <a href="https://scholar.google.com/citations?user=pW_LwFQAAAAJ">Google Scholar</a>.
+---
+<div class="publications">
+  {%- for group in publications.byYear %}
+  <h2 class="year">{{ group.year }}</h2>
+  <ol class="bibliography">
+    {%- for paper in group.papers %}
+    <li>{% include "partials/publication.njk" %}</li>
+    {%- endfor %}
+  </ol>
+  {%- endfor %}
+</div>

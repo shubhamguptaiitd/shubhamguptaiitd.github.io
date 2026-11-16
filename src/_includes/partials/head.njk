@@ -1,0 +1,43 @@
+{%- set isHome = page.url == "/" -%}
+{%- set pageTitle = site.title if isHome else (site.title + " | " + title) -%}
+{%- set pageDescription = metaDescription or site.description -%}
+{%- set canonical = page.url | absolute -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.replace("no-js", "js");</script>
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDescription }}">
+<link rel="canonical" href="{{ canonical }}">
+{% if noindex %}<meta name="robots" content="noindex">{% endif %}
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:type" content="{{ 'profile' if isHome else 'website' }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:description" content="{{ pageDescription | truncate(160) }}">
+<meta property="og:image" content="{{ site.ogImage | absolute }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ pageTitle }}">
+<meta name="twitter:description" content="{{ pageDescription | truncate(160) }}">
+<meta name="twitter:image" content="{{ site.ogImage | absolute }}">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/roboto-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+
+{% if isHome %}
+{%- set ogImageUrl = site.ogImage | absolute -%}
+{%- set person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": site.title,
+  "url": site.url + "/",
+  "image": ogImageUrl,
+  "jobTitle": "VP – Data Science",
+  "worksFor": { "@type": "Organization", "name": "Info Edge" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Delhi" },
+  "sameAs": [site.scholarUrl, site.githubUrl, site.linkedinUrl, site.xUrl, writing.publication.url]
+} %}
+<script type="application/ld+json">{{ person | json | safe }}</script>
+{% endif %}

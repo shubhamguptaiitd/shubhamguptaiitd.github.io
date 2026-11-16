@@ -1,0 +1,9 @@
+<ul class="writing-list">
+  {%- for essay in essays %}
+  <li>
+    <a class="writing-title" href="{{ essay.url }}">{{ essay.title }}</a>
+    <span class="writing-meta">{{ writing.publication.name }} · {{ essay.date | displayDate }}</span>
+    <p class="writing-desc">{{ essay.description }}</p>
+  </li>
+  {%- endfor %}
+</ul>
