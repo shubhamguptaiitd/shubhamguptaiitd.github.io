@@ -25,6 +25,7 @@ export default function (eleventyConfig) {
   // Static files.
   eleventyConfig.addPassthroughCopy({ "src/assets/css": "assets/css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/img": "assets/img" });
+  eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
   eleventyConfig.addPassthroughCopy({ "src/assets/favicon.svg": "favicon.svg" });
   for (const file of FONT_FILES) {
     eleventyConfig.addPassthroughCopy({ [`node_modules/@fontsource/roboto/files/${file}`]: `assets/fonts/${file}` });

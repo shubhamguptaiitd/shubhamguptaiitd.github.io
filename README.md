@@ -31,6 +31,7 @@ Then open http://localhost:8080. The page reloads as you edit.
 | Co-author and venue links in publications | `src/_data/coauthors.js`, `src/_data/venues.js` |
 | Styles | `src/assets/css/site.css` |
 | Photo | `src/assets/img/prof_pic.jpg` |
+| Redirects from old addresses | `src/_redirects` |
 
 ## Add an essay
 

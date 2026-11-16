@@ -1,0 +1,11 @@
+# Addresses from the old Jekyll site, sent to their new home with a permanent redirect so links and search
+# results keep working. Format: from to status (Cloudflare Workers static assets).
+/projects/ / 301
+/projects / 301
+/teaching/ / 301
+/teaching / 301
+/experience/ / 301
+/experience / 301
+/blog /writing/ 301
+/news/* / 301
+/blog/* /writing/ 301
