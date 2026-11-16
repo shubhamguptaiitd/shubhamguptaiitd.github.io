@@ -18,7 +18,7 @@ footer_text: >
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: S # the emoji used as the favicon
-url: https://shubhamguptaiitd.github.io # the base hostname & protocol for your site
+url: https://drshubhamgupta.com # the base hostname & protocol for your site
 baseurl: "" # leave empty for username.github.io user sites
 repository: shubhamguptaiitd/shubhamguptaiitd.github.io
 last_updated: false # set to true if you want to display last updated in the footer
@@ -47,7 +47,7 @@ max_width: 800px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 serve_og_meta: true # Include Open Graph meta tags in the HTML head
-og_image: https://shubhamguptaiitd.github.io/assets/img/prof_pic.jpg
+og_image: https://drshubhamgupta.com/assets/img/prof_pic.jpg
 
 # -----------------------------------------------------------------------------
 # Social integration
