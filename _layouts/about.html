@@ -29,6 +29,13 @@ layout: default
       {{ content }}
     </div>
 
+    {% if page.latest_writing %}
+    <div class="writing">
+      <h2>Latest writing <a href="{{ '/writing/' | relative_url }}"> [all] </a></h2>
+      {% include writing.html limit=page.latest_writing %}
+    </div>
+    {% endif %}
+
     {% if page.news %}
       {% include news.html %}
     {% endif %}

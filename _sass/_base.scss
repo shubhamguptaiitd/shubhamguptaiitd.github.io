@@ -207,6 +207,30 @@ blockquote {
   color: var(--global-text-color);
 }
 
+// Writing
+
+.writing-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  li {
+    margin-bottom: 1.25rem;
+  }
+  .writing-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .writing-meta {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--global-text-color-light);
+  }
+  .writing-desc {
+    margin: 0.25rem 0 0;
+  }
+}
+
+
 // Social (bottom)
 
 .social {
