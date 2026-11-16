@@ -19,13 +19,13 @@ deployment stays online, so drshubhamgupta.com keeps working unchanged until ste
 2. When GitHub asks which repositories Cloudflare may see, choose **Only select repositories** and add
    `shubhamguptaiitd.github.io` (keep `networkeffectlabs.com` selected too).
 3. Settings:
-   - Project name: any name; Cloudflare deploys to this project whatever `wrangler.jsonc` says
+   - Project name: `drshubhamgupta-com` (the same as `name` in `wrangler.jsonc`)
    - Build command: `npm run build`
    - Deploy command: `npx wrangler deploy`
    - Preview builds: off is fine
    - API token: let Cloudflare create one automatically
    - Node version comes from `.nvmrc` (24)
-4. **Deploy.** The site then works at `https://drshubhamgupta.<your-subdomain>.workers.dev`. Click through it.
+4. **Deploy.** The site then works at `https://drshubhamgupta-com.<your-subdomain>.workers.dev`. Click through it.
 
 ## 3. Add the domain to Cloudflare (you)
 

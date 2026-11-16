@@ -1,7 +1,7 @@
 // Cloudflare Workers settings. `npm run build` writes the site to _site/, and `npx wrangler deploy`
 // serves it as static assets. Server code (a Q&A box, an agent) can be added later with a `main` script.
 {
-  "name": "drshubhamgupta",
+  "name": "drshubhamgupta-com",
   "compatibility_date": "2025-11-01",
   "assets": {
     "directory": "./_site",
