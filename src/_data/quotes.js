@@ -8,5 +8,6 @@
 export default [
   {
     text: "Believe the numbers, don't believe the stories.",
+    author: "Aswath Damodaran",
   },
 ];
