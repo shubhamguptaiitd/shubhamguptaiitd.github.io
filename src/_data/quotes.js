@@ -7,6 +7,10 @@
 //   note    optional: a line of your own on why you like it
 export default [
   {
+    text: "Pause before you react. Think before you speak.",
+    author: "A rule I try to live by",
+  },
+  {
     text: "Believe the numbers, don't believe the stories.",
     author: "Aswath Damodaran",
   },
