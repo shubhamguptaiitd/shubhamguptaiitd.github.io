@@ -1,0 +1,22 @@
+---
+layout: layouts/page.njk
+permalink: /quotes/
+title: Quotes
+description: Lines I keep coming back to.
+---
+<ul class="quote-list">
+  {%- for quote in quotes %}
+  <li>
+    <blockquote class="quote">
+      <p class="quote-text">“{{ quote.text }}”</p>
+      <footer class="quote-by">
+        &mdash; {% if quote.author %}{{ quote.author }}{% else %}Origin unknown{% endif %}
+        {%- if quote.source %}, {% if quote.url %}<a href="{{ quote.url }}"><cite>{{ quote.source }}</cite></a>{% else %}<cite>{{ quote.source }}</cite>{% endif %}{% endif %}
+      </footer>
+    </blockquote>
+    {%- if quote.note %}
+    <p class="quote-note">{{ quote.note }}</p>
+    {%- endif %}
+  </li>
+  {%- endfor %}
+</ul>

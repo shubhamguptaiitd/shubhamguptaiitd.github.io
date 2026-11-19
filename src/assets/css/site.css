@@ -283,6 +283,37 @@ hr {
   margin: 0.25rem 0 0;
 }
 
+/* Quotes */
+
+.quote-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+.quote-list li {
+  margin-bottom: 2rem;
+}
+.quote {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--theme-color);
+}
+.quote-text {
+  margin: 0;
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+.quote-by {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-color-light);
+}
+.quote-note {
+  margin: 0.5rem 0 0 1rem;
+  padding-left: 3px;
+}
+
 /* News */
 
 .news table {

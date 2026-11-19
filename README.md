@@ -25,6 +25,7 @@ Then open http://localhost:8080. The page reloads as you edit.
 | Home page text | `src/index.md` |
 | Writing page intro | `src/writing.md` |
 | Essays listed on Writing and the home page | `src/_data/writing.js` |
+| Quotes page | `src/_data/quotes.js` |
 | News on the home page | one Markdown file per item in `src/news/` |
 | Publications | `src/_data/papers.bib` |
 | Name, description, social links, nav | `src/_data/site.js` |

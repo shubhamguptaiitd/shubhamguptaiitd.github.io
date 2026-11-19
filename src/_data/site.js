@@ -21,5 +21,6 @@ export default {
   nav: [
     { title: "Publications", url: "/publications/" },
     { title: "Writing", url: "/writing/" },
+    { title: "Quotes", url: "/quotes/" },
   ],
 };
