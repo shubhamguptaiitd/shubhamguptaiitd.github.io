@@ -9,10 +9,12 @@ description: Lines I keep coming back to.
   <li>
     <blockquote class="quote">
       <p class="quote-text">“{{ quote.text }}”</p>
+      {%- if quote.author %}
       <footer class="quote-by">
-        &mdash; {% if quote.author %}{{ quote.author }}{% else %}Origin unknown{% endif %}
+        &mdash; {{ quote.author }}
         {%- if quote.source %}, {% if quote.url %}<a href="{{ quote.url }}"><cite>{{ quote.source }}</cite></a>{% else %}<cite>{{ quote.source }}</cite>{% endif %}{% endif %}
       </footer>
+      {%- endif %}
     </blockquote>
     {%- if quote.note %}
     <p class="quote-note">{{ quote.note }}</p>
