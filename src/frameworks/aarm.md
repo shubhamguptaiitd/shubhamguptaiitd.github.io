@@ -17,7 +17,7 @@ summary: >-
   activation gets them to the moment they first see its value, retention brings them back, and monetization
   earns revenue from them. Each stage has its own metrics and its own experiments, so a team can find the
   stage that is the bottleneck and fix that one first, instead of buying more users who leak out later.
-published: false # set to true once the full post below is written
+published: false # set to true once the use cases below are written
 ---
 
-Write the full post here.
+Write the detailed use cases here.

@@ -20,7 +20,7 @@ summary: >-
   settle with the product. The action is the simplest thing they do expecting a reward. The reward is
   variable, which is what keeps them coming back. Investment is what they put in, such as data, content,
   connections or effort, which makes the product better for them and sets up the next trigger.
-published: false # set to true once the full post below is written
+published: false # set to true once the use cases below are written
 ---
 
-Write the full post here.
+Write the detailed use cases here.

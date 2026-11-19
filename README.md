@@ -26,7 +26,7 @@ Then open http://localhost:8080. The page reloads as you edit.
 | Writing page intro | `src/writing.md` |
 | Essays listed on Writing and the home page | `src/_data/writing.js` |
 | Quotes page | `src/_data/quotes.js` |
-| Frameworks page | one Markdown file per framework in `src/frameworks/`; set `published: true` once its full post is written |
+| Frameworks page | one Markdown file per framework in `src/frameworks/`; set `published: true` once its detailed use cases are written |
 | News on the home page | one Markdown file per item in `src/news/` |
 | Publications | `src/_data/papers.bib` |
 | Name, description, social links, nav | `src/_data/site.js` |
