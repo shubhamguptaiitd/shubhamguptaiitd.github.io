@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+---
+{%- set fw = { steps: steps, loop: loop, summary: summary, source: source } -%}
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ title }}</h1>
+    <p class="post-description">{{ expansion }}</p>
+  </header>
+  {% include "partials/framework-summary.njk" %}
+  {{ content | safe }}
+  <p><a href="/frameworks/">&larr; All frameworks</a></p>
+</article>

@@ -283,6 +283,70 @@ hr {
   margin: 0.25rem 0 0;
 }
 
+/* Frameworks */
+
+.framework {
+  margin: 1.5rem 0 2.5rem;
+}
+.fw-title {
+  margin-bottom: 0;
+}
+.fw-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.5rem 0;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+.fw-steps li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fw-steps li + li::before {
+  content: "→";
+  position: absolute;
+  left: -1.4rem;
+  top: 0.2rem;
+  color: var(--text-color-light);
+}
+.fw-steps li + li {
+  position: relative;
+  margin-left: 2rem;
+}
+.fw-step {
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--theme-color);
+  border-radius: 4px;
+  color: var(--theme-color);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.fw-note {
+  margin-top: 0.2rem;
+  font-size: 0.75rem;
+  color: var(--text-color-light);
+}
+.fw-loop {
+  padding-top: 0.25rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-color-light);
+}
+.fw-steps li.fw-loop::before {
+  content: "↻";
+}
+.fw-source {
+  font-size: 0.9rem;
+  color: var(--text-color-light);
+}
+.fw-soon {
+  font-style: italic;
+  color: var(--text-color-light);
+}
+
 /* Quotes */
 
 .quote-list {

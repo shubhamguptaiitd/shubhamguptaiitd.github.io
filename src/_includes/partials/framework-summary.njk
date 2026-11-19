@@ -1,0 +1,11 @@
+{#- One framework's name, steps, source and short description. Expects `fw` (a page's data). -#}
+<ol class="fw-steps" aria-label="Steps">
+  {%- for step in fw.steps %}
+  <li><span class="fw-step">{{ step.name }}</span>{% if step.note %}<span class="fw-note">{{ step.note }}</span>{% endif %}</li>
+  {%- endfor %}
+  {%- if fw.loop %}
+  <li class="fw-loop">back to {{ fw.steps[0].name | lower }}</li>
+  {%- endif %}
+</ol>
+<p class="fw-summary">{{ fw.summary }}</p>
+<p class="fw-source">From {{ fw.source.by }}, <a href="{{ fw.source.url }}"><cite>{{ fw.source.title }}</cite></a> ({{ fw.source.year }}).</p>
