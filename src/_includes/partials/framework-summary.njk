@@ -9,3 +9,6 @@
 </ol>
 <p class="fw-summary">{{ fw.summary }}</p>
 <p class="fw-source">From {{ fw.source.by }}, <a href="{{ fw.source.url }}"><cite>{{ fw.source.title }}</cite></a> ({{ fw.source.year }}).</p>
+{%- if fw.related %}
+<p class="fw-related">{{ fw.related | safe }}</p>
+{%- endif %}
