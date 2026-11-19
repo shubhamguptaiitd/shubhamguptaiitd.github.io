@@ -344,7 +344,7 @@ hr {
 }
 .fw-soon {
   font-style: italic;
-  color: var(--text-color-light);
+  color: #dd2e44; /* same red as .heart-red */
 }
 
 /* Quotes */
